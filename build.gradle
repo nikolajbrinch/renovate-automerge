@@ -1,0 +1,7 @@
+group = projectGroup
+
+allprojects {
+  jar.enabled = false
+
+  group = rootProject.group
+}
