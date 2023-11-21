@@ -1,7 +1,39 @@
+plugins {
+  id 'java'
+  id 'jvm-test-suite'
+  id 'jacoco'
+  alias(libs.plugins.spring.boot)
+}
+
+jar.enabled = false
+
 group = projectGroup
 
-allprojects {
-  jar.enabled = false
+dependencies {
+  implementation platform (libs.spring.boot.dependencies)
 
-  group = rootProject.group
+  implementation libs.spring.boot.devtools
+  implementation libs.spring.boot.starter.web
+  implementation libs.spring.boot.starter.actuator
+  implementation libs.logstash.logback.encoder
+  implementation libs.logback.access
+  implementation libs.javax.transaction.api
+  implementation libs.postgresql
+
+  runtimeOnly libs.micrometer.prometheus
+
+  testImplementation libs.spring.boot.starter.test
+  testImplementation libs.reactor.test
+}
+
+springBoot {
+  buildInfo()
+}
+
+publishing {
+  publications {
+    bootJar(MavenPublication) {
+      artifact tasks.named("bootJar")
+    }
+  }
 }
