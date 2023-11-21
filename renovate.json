@@ -3,6 +3,7 @@
   "extends": [ "local>nikolajbrinch/renovate-config" ],
   "packageRules": [
     {
+      "groupName": "Spring Boot",
       "matchDepNames": [
         "org.springframework.boot"
       ],
@@ -11,5 +12,5 @@
       ],
       "allowedVersions": "<=2.7"
     }
-  ]  
+  ]
 }
