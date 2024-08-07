@@ -1,6 +1,6 @@
 [versions]
-spring-boot = "2.7.15"
-test-sets =  "4.0.0"
+spring-boot = "2.7.18"
+test-sets =  "4.1.0"
 
 [libraries]
 spring-boot-dependencies = { group = "org.springframework.boot", name = "spring-boot-dependencies", version.ref = "spring-boot" }
